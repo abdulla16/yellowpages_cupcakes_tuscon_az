@@ -67,7 +67,7 @@ class YellowPagesBusinessExtractor implements BusinessExtractorInterface {
 						$business->addBranch($businessBranch);
 						$businesses[$name] = $business;
 					}
-					$this->dataManager->saveBusiness($business);
+					//$this->dataManager->saveBusiness($business);
 					
 					}
 					} catch(Exception $e) {
