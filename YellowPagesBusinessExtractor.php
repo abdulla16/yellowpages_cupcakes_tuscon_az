@@ -54,7 +54,8 @@ class YellowPagesBusinessExtractor implements BusinessExtractorInterface {
 					$url = $this->extractDetailsURL($searchResult);
 					
 					if(strlen($url) > 0) {
-						$this->extractDetails($businessBranch, $url);
+						if($name != "Shari's Berries")
+						      $this->extractDetails($businessBranch, $url);
 					}	
 					
 					if(isset($businesses[$name])) {
