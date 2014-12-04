@@ -12,7 +12,7 @@ class scraperwiki {
 
 protected $db;
 
-public function __construct($db = 'sqlite:scraperwiki.sqlite') {
+public function __construct($db = 'sqlite:data.sqlite') {
 	// connect
 	scraperwiki::_connect($db);
 }
