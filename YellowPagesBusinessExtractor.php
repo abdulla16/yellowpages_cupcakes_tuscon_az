@@ -52,12 +52,12 @@ class YellowPagesBusinessExtractor implements BusinessExtractorInterface {
 					$businessBranch->setId($id);
 					
 					$url = $this->extractDetailsURL($searchResult);
-					if($name != "Shari's Berries")
-					{	
+						
 					if(strlen($url) > 0) {
 						$this->extractDetails($businessBranch, $url);
 					}	
-					
+					if($name != "Shari's Berries")
+					{
 					if(isset($businesses[$name])) {
 						$businesses[$name]->addBranch($businessBranch);
 					} else {
