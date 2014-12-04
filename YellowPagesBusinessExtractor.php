@@ -58,8 +58,7 @@ class YellowPagesBusinessExtractor implements BusinessExtractorInterface {
 					if(strlen($url) > 0) {
 						$this->extractDetails($businessBranch, $url);
 					}	
-					if($name != "Shari's Berries")
-					{
+					
 					if(isset($businesses[$name])) {
 						$businesses[$name]->addBranch($businessBranch);
 					} else {
@@ -70,7 +69,7 @@ class YellowPagesBusinessExtractor implements BusinessExtractorInterface {
 					}
 					$this->dataManager->saveBusiness($business);
 					}
-					}
+					
 				}
 				
 			}
