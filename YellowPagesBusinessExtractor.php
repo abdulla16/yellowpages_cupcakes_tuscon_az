@@ -40,9 +40,7 @@ class YellowPagesBusinessExtractor implements BusinessExtractorInterface {
 				foreach($organicResults[0]->find("div.result") as $searchResult) {
 					try {
 					$name = $this->extractItem($searchResult, 'name');
-					if($name == "Shari's Berries")
-					{
-						echo "Extracting business: $name...\n";
+					echo "Extracting business: $name...\n";
 					$businessBranch = new BusinessBranch();
 					$businessBranch->setStreetAddress($this->extractItem($searchResult, 'streetAddress'));
 					$businessBranch->setAddressLocality($this->extractItem($searchResult, 'addressLocality'));
@@ -69,7 +67,6 @@ class YellowPagesBusinessExtractor implements BusinessExtractorInterface {
 						$businesses[$name] = $business;
 					}
 					$this->dataManager->saveBusiness($business);
-					}
 					} catch(Exception $e) {
 						var_dump($e);
 						exit(1);
