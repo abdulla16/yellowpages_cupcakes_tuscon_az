@@ -13,7 +13,7 @@ class DataManager {
 	public function saveBranch($branch, $businessName) {
 		$columnValues = array();
 		
-		$columnValues["id"] = $branch->getId();
+		$columnValues["branch_id"] = $branch->getId();
 		$columnValues["business_name"] = $businessName;
 		$columnValues["street_address"] = $branch->getStreetAddress();
 		$columnValues["address_locality"] = $branch->getAddressLocality();
@@ -26,8 +26,7 @@ class DataManager {
 		}
 		
 		$columnValues["additional_details"] = json_encode($object);
-		sleep(1);
-		scraperwiki::save_sqlite(array("id"), $columnValues, "branch");
+		scraperwiki::save_sqlite(array("branch_id"), $columnValues, "branch");
 		foreach($branch->getPhones() as $phone) {
 			$this->savePhone($phone, $branch->getId());
 			
