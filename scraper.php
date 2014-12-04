@@ -16,6 +16,9 @@ $extractor = new YellowPagesBusinessExtractor(function ($url) { return scraperwi
 	new HtmlDomLoaderFactory(),
 	new DataManager());
 $businesses = $extractor->extractAndSaveBusinesses('Tuscon, AZ', 'cupcakes');
-
+$dataManager = new DataManager();
+foreach($businesses as $business) {
+	$dataManager->saveBusiness($business);
+}
 
 exit(0);
