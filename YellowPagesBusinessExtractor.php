@@ -38,6 +38,7 @@ class YellowPagesBusinessExtractor implements BusinessExtractorInterface {
 			if(count($organicResults) > 0) {
 				$moreResults = true;
 				foreach($organicResults[0]->find("div.result") as $searchResult) {
+					try {
 					$name = $this->extractItem($searchResult, 'name');
 					if($name == "Shari's Berries")
 					{
@@ -68,6 +69,10 @@ class YellowPagesBusinessExtractor implements BusinessExtractorInterface {
 						$businesses[$name] = $business;
 					}
 					$this->dataManager->saveBusiness($business);
+					}
+					catch(Exception $e) {
+						var_dump($e);
+						exit(1);
 					}
 					
 				}
