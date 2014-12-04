@@ -68,10 +68,11 @@ class YellowPagesBusinessExtractor implements BusinessExtractorInterface {
 						$businesses[$name] = $business;
 					}
 					$this->dataManager->saveBusiness($business);
+					
+					}
 					} catch(Exception $e) {
 						var_dump($e);
 						exit(1);
-					}
 					}
 					
 				}
