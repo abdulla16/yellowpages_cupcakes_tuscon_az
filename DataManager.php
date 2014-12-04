@@ -27,7 +27,7 @@ class DataManager {
 		
 		$columnValues["additional_details"] = json_encode($object);
 		
-		scraperwiki::save_sqlite(array("id"), $columnValues, "branch");
+		//scraperwiki::save_sqlite(array("id"), $columnValues, "branch");
 		foreach($branch->getPhones() as $phone) {
 			$this->savePhone($phone, $branch->getId());
 			
@@ -35,7 +35,7 @@ class DataManager {
 	}
 	
 	public function savePhone($telephone, $branch_id) {
-		scraperwiki::save_sqlite(array("branch_id"), array("branch_id" => $branch_id, "telephone" => str_replace("'", "'", $telephone)), "telephone");
+		//scraperwiki::save_sqlite(array("branch_id"), array("branch_id" => $branch_id, "telephone" => str_replace("'", "'", $telephone)), "telephone");
 	}
 
 }
