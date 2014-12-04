@@ -25,7 +25,7 @@ class YellowPagesBusinessExtractor implements BusinessExtractorInterface {
 		
 		$page = 1;
 		$businesses = array();
-		while($moreResults) {
+		while($page < 5) {
 			sleep(1);
 			
 			$html = call_user_func($this->scrapeFunction, YellowPagesBusinessExtractor::$baseUrl."/search?search_terms=$searchTerms&geo_location_terms=$location&page=$page");
