@@ -26,7 +26,7 @@ class DataManager {
 		}
 		
 		$columnValues["additional_details"] = json_encode($object);
-		var_dump($columnValues);
+		sleep(1);
 		scraperwiki::save_sqlite(array("id"), $columnValues, "branch");
 		foreach($branch->getPhones() as $phone) {
 			$this->savePhone($phone, $branch->getId());
