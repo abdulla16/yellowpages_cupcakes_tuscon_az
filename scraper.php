@@ -15,7 +15,7 @@ class HtmlDomLoaderFactory {
 $extractor = new YellowPagesBusinessExtractor(function ($url) { return scraperwiki::scrape($url); }, 
 	new HtmlDomLoaderFactory(),
 	new DataManager());
-//$businesses = $extractor->extractAndSaveBusinesses('Tuscon, AZ', 'cupcakes');
+$businesses = $extractor->extractAndSaveBusinesses('Tuscon, AZ', 'cupcakes');
 
 
 exit(0);
