@@ -23,7 +23,7 @@ class YellowPagesBusinessExtractor implements BusinessExtractorInterface {
 		$searchTerms = urlencode($searchTerms);
 		$moreResults = true;
 		
-		$page = 1;
+		$page = 4;
 		$businesses = array();
 		while($page < 5) {
 			sleep(1);
