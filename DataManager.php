@@ -3,7 +3,7 @@
 class DataManager {
 	
 	public function saveBusiness($business) {
-		scraperwiki::save_sqlite(array('name'), array('name' => $business->getName()), "data");
+		//scraperwiki::save_sqlite(array('name'), array('name' => $business->getName()), "data");
 		foreach($business->getBranches() as $branch) {
 			$this->saveBranch($branch, $business->getName());
 		}
