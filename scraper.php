@@ -18,3 +18,4 @@ $extractor = new YellowPagesBusinessExtractor(function ($url) { return scraperwi
 $businesses = $extractor->extractAndSaveBusinesses('Tuscon, AZ', 'cupcakes');
 
 
+exit(0);
