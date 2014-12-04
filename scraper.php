@@ -18,11 +18,3 @@ $extractor = new YellowPagesBusinessExtractor(function ($url) { return scraperwi
 $businesses = $extractor->extractAndSaveBusinesses('Tuscon, AZ', 'cupcakes');
 
 
-
- //$result = scraperwiki::select("* from branch");
- //var_dump($result);
-// You don't have to do things with the ScraperWiki library. You can use whatever is installed
-// on Morph for PHP (See https://github.com/openaustralia/morph-docker-php) and all that matters
-// is that your final data is written to an Sqlite database called data.sqlite in the current working directory which
-// has at least a table called data.
-?>
