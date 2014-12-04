@@ -75,7 +75,8 @@ class YellowPagesBusinessExtractor implements BusinessExtractorInterface {
 	}
 	
 	private function extractDetails(BusinessBranch &$branch, $detailsURL) {
-
+		echo "Extracting details: $detailsURL...\n";
+					
 		$html = call_user_func($this->scrapeFunction, YellowPagesBusinessExtractor::$baseUrl.$detailsURL);
 		$htmlDomLoader = $this->htmlDomLoaderFactory->make();
 		$htmlDomLoader->load($html);
@@ -138,6 +139,8 @@ class YellowPagesBusinessExtractor implements BusinessExtractorInterface {
 	}
 	
 	private function extractPhones($searchResult) {
+		echo "Extracting phones:...\n";
+		
 		$phones = array();
 		$phones = $searchResult->find("[itemprop='telephone']");
 		foreach($phones as $phone) {
