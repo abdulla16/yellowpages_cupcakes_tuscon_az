@@ -5,6 +5,8 @@ require __DIR__.'/simple_html_dom.php';
 require __DIR__.'/YellowPagesBusinessExtractor.php';
 require __DIR__.'/DataManager.php';
 
+echo "Scraper started!\n";
+
 //FIXME: Ideally we should have a dependency container that is used to resolve the dependencies.
 class HtmlDomLoaderFactory {
 	public function make() {
