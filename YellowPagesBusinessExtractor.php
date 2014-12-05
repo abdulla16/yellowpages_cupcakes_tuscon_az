@@ -39,34 +39,34 @@ class YellowPagesBusinessExtractor implements BusinessExtractorInterface {
 				$moreResults = true;
 				foreach($organicResults[0]->find("div.result") as $searchResult) {
 					try {
-					$name = $this->extractItem($searchResult, 'name');
-					echo "Extracting business: $name...\n";
-					$businessBranch = new BusinessBranch();
-					$businessBranch->setStreetAddress($this->extractItem($searchResult, 'streetAddress'));
-					$businessBranch->setAddressLocality($this->extractItem($searchResult, 'addressLocality'));
-					$businessBranch->setAddressRegion($this->extractItem($searchResult, 'addressRegion'));
-					$businessBranch->setPostalCode($this->extractItem($searchResult, 'postalCode'));
-					$businessBranch->setPhones($this->extractPhones($searchResult));
-					
-					$id = $searchResult->getAttribute("data-ypid");
-					
-					$businessBranch->setId($id);
-					
-					$url = $this->extractDetailsURL($searchResult);
+						$name = $this->extractItem($searchResult, 'name');
+						echo "Extracting business: $name...\n";
+						$businessBranch = new BusinessBranch();
+						$businessBranch->setStreetAddress($this->extractItem($searchResult, 'streetAddress'));
+						$businessBranch->setAddressLocality($this->extractItem($searchResult, 'addressLocality'));
+						$businessBranch->setAddressRegion($this->extractItem($searchResult, 'addressRegion'));
+						$businessBranch->setPostalCode($this->extractItem($searchResult, 'postalCode'));
+						$businessBranch->setPhones($this->extractPhones($searchResult));
 						
-					if(strlen($url) > 0) {
-						$this->extractDetails($businessBranch, $url);
-					}	
-					
-					if(isset($businesses[$name])) {
-						$businesses[$name]->addBranch($businessBranch);
-					} else {
-						$business = new Business();
-						$business->setName($name);
-						$business->addBranch($businessBranch);
-						$businesses[$name] = $business;
-					}
-					//$this->dataManager->saveBusiness($business);
+						$id = $searchResult->getAttribute("data-ypid");
+						
+						$businessBranch->setId($id);
+						
+						$url = $this->extractDetailsURL($searchResult);
+							
+						if(strlen($url) > 0) {
+							$this->extractDetails($businessBranch, $url);
+						}	
+						
+						if(isset($businesses[$name])) {
+							$businesses[$name]->addBranch($businessBranch);
+						} else {
+							$business = new Business();
+							$business->setName($name);
+							$business->addBranch($businessBranch);
+							$businesses[$name] = $business;
+						}
+						$this->dataManager->saveBusiness($business);
 					} catch(Exception $e) {
 						var_dump($e);
 						exit(1);
